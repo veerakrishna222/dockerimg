@@ -18,11 +18,10 @@ try {
       }
      }
           stage('build image') {
-      {
         app = docker.build("shanmukha443/new43:docker${env.BUILD_NUMBER}")
         sh "/bin/mv -f $WORKSPACE/target/*.war $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war"
        }
-    }
+   
           stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
@@ -31,8 +30,8 @@ try {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
-        }
-        
+         }
+          }
     
    stage('Deploy') {
         sh "/bin/cp -f $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war /opt/tomcat/apache-tomcat-9.0.7/webapps/vsvyadav.war"
