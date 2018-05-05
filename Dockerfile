@@ -3,6 +3,7 @@ FROM tomcat
 MAINTAINER shnamukha
 
 RUN apt-get update && apt-get -y upgrade
+RUN apt-get install maven -y
 
 WORKDIR /usr/local/tomcat
 
