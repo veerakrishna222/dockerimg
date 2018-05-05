@@ -19,7 +19,6 @@ try {
      }
           stage('build image') {
         app = docker.build("shanmukha443/new43:docker${env.BUILD_NUMBER}")
-        sh "/bin/mv -f $WORKSPACE/target/*.war $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war"
        }
    
           stage('Push image') {
