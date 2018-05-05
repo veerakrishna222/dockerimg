@@ -12,8 +12,8 @@ try {
      stage('Maven Build') {
       docker.image('maven:3.5-jdk-8-alpine').inside {
         sh "mvn clean package -Dbuild.number=${BUILD_NUMBER}"
-          sh "/bin/cp  $WORKSPACE/target/*.war $WORKSPACE/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war"
-        sh "/bin/mv -f $WORKSPACE/target/*.war $WORKSPACE/vsvyadav.war"
+        sh "/bin/mv -f $WORKSPACE/target/*.war $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war"
+        sh "/bin/cp -f $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war $WORKSPACE/vsvyadav.war"
        
       }
      }
