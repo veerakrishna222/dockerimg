@@ -14,3 +14,4 @@ COPY vsvyadav.war /usr/local/tomcat/webapps/
 EXPOSE 8080
 
 CMD sh  /usr/local/tomcat/bin/startup.sh
+ENTRYPOINT sh  /usr/local/tomcat/bin/startup.sh
