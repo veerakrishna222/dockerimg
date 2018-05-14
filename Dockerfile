@@ -13,5 +13,4 @@ CMD usermod -R 777 /usr/local/tomcat/webapps
 COPY vsvyadav.war /usr/local/tomcat/webapps/
 EXPOSE 8080
 
-CMD sh  /usr/local/tomcat/bin/startup.sh
-ENTRYPOINT sh  /usr/local/tomcat/bin/startup.sh
+CMD ["catalina.sh", "run"]
