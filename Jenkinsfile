@@ -1,5 +1,5 @@
 
-node('new43') {
+node('neew') {
 // Delete the workspace
 //deleteDir()
      def app
@@ -33,8 +33,8 @@ try {
           }
     
    stage('Deploy') {
-        sh "/bin/cp -f $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war /opt/tomcat/apache-tomcat-9.0.7/webapps/vsvyadav.war"
-        sh " sh /opt/tomcat/apache-tomcat-9.0.7/bin/startup.sh"
+        sh "/bin/cp -f $WORKSPACE/Build-${env.BUILD_NUMBER}/vsvyadav_${env.BRANCH_NAME}${env.BUILD_NUMBER}.war /opt/apache-tomcat-8.5.34/webapps/vsvyadav.war"
+        sh " sh /opt/apache-tomcat-8.5.34/bin/startup.sh"
    }
   
    delivery.artifactory()
