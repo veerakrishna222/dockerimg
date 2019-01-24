@@ -18,7 +18,7 @@ try {
       }
      }
           stage('build image') {
-        app = docker.build("sambasiva2407/devopsguru:docker${env.BUILD_NUMBER}")
+        app = docker.build("shanmukha443/new43:docker${env.BUILD_NUMBER}")
        }
    
           stage('Push image') {
